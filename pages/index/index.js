@@ -92,15 +92,15 @@ Page({
           success: success 
       });
     }).then(function (result){
-      console.log(result)
+      // console.log(result)
       var page = that.data.page;
-      console.log(page)
+      // console.log(page)
       var city_id = result;
-      console.log(city_id);
+      // console.log(city_id);
       var home_slide = that.data.homeGallery + "&city_id=" + city_id;
       var home_list_url = that.data.homeUrl + "&city_id=" + city_id;
-      console.log(home_list_url);
-      console.log(home_slide);
+      // console.log(home_list_url);
+      // console.log(home_slide);
       var city_id = result;
       wx.request({
         url: home_slide,
