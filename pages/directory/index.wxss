@@ -1,0 +1,21 @@
+/**directory**/
+.directory-items { width: 100%; padding-bottom: 20rpx;}
+.directory-item { padding: 20rpx; padding-bottom: 0;}
+.directory-item image { width: 100%; max-height: 350rpx; }
+
+.directory-item-intro {
+  margin-top:-30px;
+  padding:6px;
+  background:rgba(0,0,0,.3);
+  color:#fff;
+  height:30px;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+.directory-item-intro text { overflow: hidden; height: 19px; line-height: 19px; }
+.directory-container .search {
+	width:100%;
+	margin:0 30rpx;
+}
+.directory-container .search-pad { position: relative;}
+.directory-container .search input { width: 90%;}

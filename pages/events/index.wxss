@@ -1,0 +1,41 @@
+/* pages/events/index.wxss */
+
+.event-items { padding-bottom: 20rpx; width: 100%;}
+.event-item { padding: 20rpx; padding-bottom: 0;}
+.event-item image { width: 100%; max-height: 350rpx; }
+
+.event-item-intro {
+  margin-top:-30px;
+  padding:6px;
+  background:rgba(0,0,0,.3);
+  color:#fff;
+  height:30px;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+.event-item-intro text { overflow: hidden; height: 19px; line-height: 19px; }
+.tag-date {
+    position:relative;
+    width:130px;
+    background:#f9421e;
+    color:#fff;
+    height:30px;
+    line-height:30px;
+    padding-left:30px;
+    padding-right:10px;
+
+}
+.tag-date::before {
+    content:"\e6bf";
+    font-family:iconfont;
+    position:absolute;
+    left:2px;
+
+}
+
+.event-container .search {
+  width:100%;
+  margin:0 30rpx;
+}
+.event-container .search-pad { position: relative;}
+.event-container .search input { width: 90%;}

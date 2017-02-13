@@ -1,0 +1,39 @@
+<!--pages/events/index.wxml-->
+<view class="container event-container">
+  <view class="search-view">
+    <view class="search-pad">
+      <view class="search">
+          <input bindblur="inputBlur" placeholder="Events" placeholder-style="font-size: 12px;" /><icon type="search" size="16" color="#fc4103"/>
+      </view>
+    </view>
+  </view>
+  
+  <swiper class="common-swiper" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{dataSlide}}">
+      <swiper-item bindtap="bindSwiper" id="{{item.link}}">
+        <image src="{{item.coverpic}}" class="slide-image" mode="aspectFill" />
+        <view class="trans-bg">
+          <text>{{item.fulltitle}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="flex-view flex-column event-items">
+    <block wx:for="{{dataList}}">
+      <view class="event-item flex-column flex-view" id="{{item.id}}" bindtap="bindItemTap">
+        <image mode="aspectFill" class="directory-item-img" src="{{item.coverpic}}"></image>
+        <view class="event-item-intro">
+          <text>{{item.fulltitle}}</text>
+        </view>
+        <!--<view class="tag-date">
+          22nd Jua 2017
+        </view>-->
+      </view>
+    </block>
+
+  </view>
+ 
+  
+</view>

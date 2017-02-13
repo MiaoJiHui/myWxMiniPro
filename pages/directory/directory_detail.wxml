@@ -1,0 +1,54 @@
+<!-- directory详情页 -->
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="detail directory-detail">
+    <view class="img-container">
+        <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <block wx:for="{{pictures}}">
+            <swiper-item>
+                <image src="{{item.coverpic}}" class="slide-image" mode="aspectFill" />
+                
+            </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="detail-container">
+        <view class="headline">
+            <text class="h2">{{directoryArray.fulltitle}}</text>
+        </view>
+        <view class="table">
+            <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-wxbzhuye"></span>Address</view>
+                <view class="td flow-2">{{directoryArray.enaddress}}</view>
+            </view>           
+             <view class="tr" bindtap="bind2map"  >
+                <view class="td-2" ><span class="iconfont icon-dache"></span>地址（Taxi printout）<span class="iconfont icon-more"></span></view>
+            </view>
+             <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-wxbdingwei"></span>Region</view>
+                <view class="td flow-2">{{directoryArray.region_data[0].dataname}} {{directoryArray.region_data[1].dataname}}</view>
+            </view>
+             <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-iconfontphone"></span>Phone</view>
+                <view class="td flow-2" class="phone" bindtap="bindphoneCall" id="{{directoryArray.phone}}">{{directoryArray.phone}}</view>
+            </view>
+             <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-renwuguanli"></span>Hours</view>
+                <view class="td flow-2">{{directoryArray.sHours}}</view>
+            </view>
+        </view>
+        <view class="text-container">
+            <template is="wxParse" data="{{wxParseData:directory.nodes}}"/>
+        </view>
+       <!--  <view class="tag-container">
+            <block wx:if="{{doTagsExist}}">
+                <text wx:for="{{tagArray}}" class="tag">{{item}}</text>
+            </block>
+        </view> -->
+        <view class="map_container"> 
+         <!--  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>  -->
+         <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{map.markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location="true" bindtap="bind2map" ></map>
+        </view>
+    </view>
+</view>

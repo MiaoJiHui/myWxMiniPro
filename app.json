@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/directory/index",
+    "pages/directory/directory_detail",
+    "pages/events/index",
+    "pages/events/events_detail",
+    "pages/guides/index",
+    "pages/detail/index",
+    "pages/guides/index_detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fc4103",
+    "navigationBarTitleText": "That's Mini",
+    "navigationBarTextStyle":"#fff"
+
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#fc4103",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "#000",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "Home",
+      "iconPath": "images/home1.png",
+      "selectedIconPath": "images/home2.png"
+      },{
+      "pagePath": "pages/directory/index",
+      "text": "Directory",
+      "iconPath": "images/directory1.png",
+      "selectedIconPath": "images/directory2.png"
+      },
+      {
+      "pagePath": "pages/events/index",
+      "text": "Events",
+      "iconPath": "images/events1.png",
+      "selectedIconPath": "images/events2.png"
+      },
+      {
+      "pagePath": "pages/guides/index",
+      "text": "Guides",
+      "iconPath": "images/guides1.png",
+      "selectedIconPath": "images/guides2.png"
+      }
+      ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

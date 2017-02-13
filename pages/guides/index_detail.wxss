@@ -1,0 +1,20 @@
+/* pages/guides/index_detail.wxss */
+.index-detail {
+    padding:10px;
+}
+.index-detail .item {
+    border-bottom: 1px dashed #999;
+    margin-bottom: 20rpx;
+}
+.item-words {
+    padding: 10rpx;
+    display: flex;
+}
+
+.item-words text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5rpx 0;
+    line-height: 1.2;
+}
+.description { color: #9a9a9a;}

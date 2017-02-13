@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="container index-container">
+
+  <view class="search-view">
+    <form bindsubmit="searchSubmit" action="">
+      <view class="search-pad">
+        <view class="city">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+              {{array[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class="search">
+            <input bindblur="inputBlur" placeholder="Search" value="{{inputValue}}" /><icon type="search" size="16" color="#fc4103" bindtap="bindSearch" />
+        </view>
+      </view>
+    </form>
+  </view>
+  
+  <swiper class="common-swiper" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{galleryArray}}">
+      <swiper-item bindtap="bindSwiper" id="{{item.link}}" indicator-dots="false" indicator-color="rgba(255,255,255,.5)" indicator-active-color="#fff">
+        <image src="{{item.coverpic}}" mode="aspectFill" class="slide-image"/>
+        <view class="trans-bg">
+          <text>{{item.fulltitle}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="article-list">
+    <block wx:for="{{homeArticlesArray}}">
+      <view class="article-list-item" id="{{item.id}}" bindtap="bindItemTap">
+        <view class="img-container">
+          <image  mode="aspectFill" src="{{item.coverpic}}"></image>
+        </view>
+        <view class="text-container" >
+          <view class="p"><text class="headline">{{item.fulltitle}}</text></view>
+          <text class="date">{{item.iPubtime_dt}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+   <!-- <view class="home-article-items">
+    <block wx:for="{{homeArticlesArray}}">
+      <view class="home-article-item flex-view" id="{{item.id}}" bindtap="bindItemTap">
+        <view >
+          <image style="width: 160px; height: 100px; background-color: #eeeeee;" mode="aspectFill" src="{{item.coverpic}}"></image>
+        </view>
+        <view class=" flex-column" >
+          <text class="headline">{{item.fulltitle}}</text>
+          <text class="date">{{item.iPubtime_dt}}</text>
+        </view>
+      </view>
+     </block>
+   </view> -->
+</view>
+

@@ -1,0 +1,9 @@
+/* 文章详情页样式 */
+@import "/wxParse/wxParse.wxss";
+
+.article-detail {  display: flex; padding: 20rpx; flex-direction: column;}
+.article-detail .img-container { width: 100%; height: auto; display: flex;}
+.article-detail .img-container image { width: 100%; margin: 0 auto; height: 400rpx; background-color: #eeeeee;}
+.headline { padding: 30rpx 0;}
+.headline .h1 { display: block; margin-bottom: 10rpx;}
+image { max-height: 1600rpx; }

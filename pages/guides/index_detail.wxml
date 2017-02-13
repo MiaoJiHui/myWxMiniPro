@@ -1,0 +1,26 @@
+<!--pages/guides/index_detail.wxml-->
+<view class="container">
+  <swiper class="common-swiper" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{dataSlide}}">
+      <swiper-item bindtap="bindSwiper" id="{{item.link}}">
+        <image src="{{item.coverpic}}" mode="aspectFill" class="slide-image"/>
+        <view class="trans-bg">
+          <text>{{item.fulltitle}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="index-detail">
+    <block wx:for="{{dataList}}">
+      <view class="item" bindtap="bindItemTap" id="{{item.id}}">
+          <image class="item-img" src="{{item.coverpic}}" mode="aspectFill"></image>
+          <view class="item-words flex flex-column">
+              <text class="headline h2">{{item.fulltitle}}</text>
+              <text class="author-date small">{{item.author}}, {{item.iPubtime_dt}}</text>
+              <text class="description small">{{item.description}}</text>
+          </view>
+      </view>
+    </block> 
+  </view>
+</view>

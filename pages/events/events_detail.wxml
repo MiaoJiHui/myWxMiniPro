@@ -1,0 +1,60 @@
+<!-- events详情页 -->
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="detail events-detail">
+    <view class="img-container">
+        <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <block wx:for="{{pictures}}">
+            <swiper-item>
+                <image src="{{item.coverpic}}" class="slide-image" mode="aspectFill"/>
+            </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="detail-container">
+        <view class="headline">
+            <text class="h2">{{eventsArray.fulltitle}}</text>
+        </view>
+        <view class="table">
+            <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-calendar"></span>Date</view>
+                <view class="td flow-2">{{eventsArray.runtime_string}}</view>
+            </view>           
+            <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-quguo"></span>Venue</view>
+                <view class="td flow-2" bindtap="bind2venue" id="{{venueList.share_link}}">{{venueList.entitle}}</view>
+            </view>
+            <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-wxbdingwei"></span>Address</view>
+                <view class="td flow-2">{{venueList.enaddress}}</view>
+            </view>
+            <view class="tr" bindtap="bind2map" id="{{venueList.maplat}},{{venueList.maplng}},{{venueList.sCnAddress}}" >
+                <view class="td-2" ><span class="iconfont icon-dache"></span>地址（Taxi printout）<span class="iconfont icon-more"></span></view>
+            </view>
+            <view class="tr">
+                <view class="td flow-1"><span class="iconfont icon-iconfontphone"></span>Phone</view>
+                <view class="td flow-2" class="phone" bindtap="bindphoneCall" id="{{eventsArray.phone}}">{{venueList.phone}}</view>
+            </view>
+             
+        </view>
+        <view class="text-container">
+            <!-- <template is="wxParse" data="{{wxParseData:events.nodes}}"/> -->
+            <view>
+                <text>{{eventsArray.description}}</text>
+            </view>
+            <view style="font-style:italic;">
+                <text>{{eventsArray.opentime}}, {{eventsArray.runtime_string}}, {{eventsArray.event_price}}. </text><text class="phone" bindtap="bind2venue" id="{{venueList.share_link}}">{{venueList.entitle}}</text>
+            </view>
+        </view>
+        <!-- <view class="tag-container">
+            <block wx:if="{{doTagsExist}}">
+                <text wx:for="{{tagArray}}" class="tag">{{item}}</text>
+            </block>
+        </view> -->
+        <view class="map_container"> 
+      
+         <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" bindtap="bind2map" ></map>
+        </view>
+    </view>
+</view>

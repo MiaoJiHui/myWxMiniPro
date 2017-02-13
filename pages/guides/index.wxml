@@ -1,0 +1,27 @@
+<!--pages/guides/index.wxml-->
+<view class="container guides-container">
+  <swiper class="common-swiper" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{dataSlide}}">
+      <swiper-item bindtap="bindSwiper" id="{{item.link}}">
+        <image mode="aspectFill" src="{{item.coverpic}}" class="slide-image"/>
+        <view class="trans-bg">
+          <text>{{item.fulltitle}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="flex-view flex-column guides-items">
+    <block wx:for="{{rootCat}}">
+      <view class="guides-item flex-column flex-view" id="{{item.alias}}" bindtap="bindItemTap">
+        <image mode="aspectFill" class="guides-item-img" src="{{item.coverpic}}"></image>
+        <!-- <view class="guides-item-intro"> -->
+          <!-- <text>How To</text> -->
+        <!-- </view> -->
+      </view>
+    </block>
+  </view>
+ 
+  
+</view>
