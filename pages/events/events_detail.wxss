@@ -3,7 +3,7 @@
 
 .detail swiper {
   width: 100%;
-  height: 400rpx;
+  height: 440rpx;
 }
 .detail swiper image { width: 100%; height: inherit;}
 .events-detail { padding: 0;}

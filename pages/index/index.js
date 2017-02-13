@@ -41,6 +41,7 @@ Page({
       }
     ],
     index: 0,
+    cityId: 1,
     homeUrl: 'https://api.thatsmags.com/archive/list?limit=10',
     articleSearchUrl: 'https://api.thatsmags.com/archive/search.html?cat_id=1&k=',
     homeGallery: 'https://api.thatsmags.com/public/apphome?slide_num=3'
@@ -51,57 +52,63 @@ Page({
     wx.showToast({
       title: 'Loading',
       icon: 'loading',
-      duration: 1500
+      duration: 2000
     });
     var that = this;
-    var promise = new Promise(function(resolve, reject){
-        // 新建百度地图对象 
-        var BMap = new bmap.BMapWX({ 
-            ak: 'zcSiGlQWS1srhntxfszzVeyWPccBntPm' 
-        }); 
-        var fail = function(data) { 
-            console.log(data) 
-        };
-        var success = function(data) { 
-          var weatherData = data.currentWeather[0]; 
-          var currentCity = weatherData.currentCity;
 
-          var index = 0;
-          switch(currentCity){
-            case "上海市": index = 2; break;
-            case "北京市": index = 1; break;
-            case "广州市": index = 2; break;
-            case "深圳市": index = 3; break; 
-            default: index = 0;break;
-          }
-          if(index){
-            console.log(index);
-            that.setData({ index: index});
-          }
+    // 新建Promise对象处理异步顺序执行
+    new Promise(function(resolve, reject){
+      // 新建百度地图对象 
+      var BMap = new bmap.BMapWX({ 
+          ak: 'zcSiGlQWS1srhntxfszzVeyWPccBntPm' 
+      }); 
+      var fail = function(data) { 
+          console.log(data) 
+      };
+      var success = function(data) { 
+        var weatherData = data.currentWeather[0]; 
+        var currentCity = weatherData.currentCity;
+
+        var index;
+        switch(currentCity){
+          case "上海市": index = 0; break;
+          case "北京市": index = 1; break;
+          case "广州市": index = 2; break;
+          case "深圳市": index = 3; break; 
+          default: index = 0;break;
         }
-        // 发起weather请求 
-        BMap.weather({ 
-            fail: fail, 
-            success: success 
-        });
-    });
-
-    var page = this.data.page;
-    var city_id = util.dealCityId(this.data.index + 1);
-    console.log(city_id);
-    var home_slide = this.data.homeGallery;
-    var home_list_url = this.data.homeUrl + "&city_id=" + city_id;
-    console.log(home_list_url);
-    // 请求首页轮播图
-    promise.then(function(){
-      console.log(111111)
+        if(typeof(index)!== undefined){
+          console.log(index);
+          var city_id = util.dealCityId(parseInt(index+1));
+          that.setData({ index: index});
+          that.setData({ cityId: city_id});
+          app.globalData.cityId = city_id;
+          resolve(util.dealCityId(parseInt(index+1))); //传值
+        }
+      }
+      // 发起weather请求 
+      BMap.weather({ 
+          fail: fail, 
+          success: success 
+      });
+    }).then(function (result){
+      console.log(result)
+      var page = that.data.page;
+      console.log(page)
+      var city_id = result;
+      console.log(city_id);
+      var home_slide = that.data.homeGallery + "&city_id=" + city_id;
+      var home_list_url = that.data.homeUrl + "&city_id=" + city_id;
+      console.log(home_list_url);
+      console.log(home_slide);
+      var city_id = result;
       wx.request({
         url: home_slide,
         method: 'POST',
         header: { 'content-type': 'application/json'},
         success: function(res) {
           if(res){
-            console.log(res)
+            // console.log(res)
             var galleryArray = res.data.body.app_home_slide;
             that.setData({
               galleryArray: galleryArray
@@ -120,10 +127,12 @@ Page({
             that.setData({
               homeArticlesArray: res.data.body.data_list
             })
+            wx.hideToast();
           }
         }
       })
-    })
+    });
+
    
   },
   refreshIndexPage: function(page_index) {
@@ -264,7 +273,7 @@ Page({
     var that = this;
     that.data.page++;
     var homeUrl = that.data.homeUrl;
-    var city_id = app.globalData.cityId;
+    var city_id = that.data.cityId;
     // var url = 'https://api.thatsmags.com/archive/list?os=android&lat=31.20819&lng=121.625916&device_id=861054037928152&limit=10&version=1.0.4&city_id=1&page=' + that.data.page;
 
     wx.request({
@@ -273,7 +282,7 @@ Page({
       header: { 'content-type': 'application/json'},
       success: function(res) {1
         if(res){
-          console.log(res)
+          // console.log(res)
           wx.hideNavigationBarLoading();     
           that.setData({
             homeArticlesArray: that.data.homeArticlesArray.concat(res.data.body.data_list)
@@ -283,7 +292,6 @@ Page({
     }) 
   },
   onReady: function(){
-    wx.hideToast();
   },
   // 分享
   onShareAppMessage: function () {

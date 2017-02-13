@@ -129,6 +129,14 @@ Page({
       }
     })
   },
+  previewPic: function(e){
+    var current = e.currentTarget.id;
+    var pic_array = new Array(current);
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接
+      urls: pic_array // 需要预览的图片http链接列表
+    })
+  },
   onReady:function(){
     // 页面渲染完成
   },

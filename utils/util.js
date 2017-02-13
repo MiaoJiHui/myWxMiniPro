@@ -11,7 +11,7 @@ function wxPromisify(fn) {
         reject(res);     
       }      
 
-      fn(obj)  ;  
+      fn(obj);
     })  
   }
 }

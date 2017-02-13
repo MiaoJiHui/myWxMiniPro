@@ -70,6 +70,7 @@ Page({
         WxParse.wxParse('directory', 'html', rich_text, that, 0);
        
         // console.log(latitude+"----"+longitude);
+        console.log(res.data.body)
         that.setData({
           pictures: res.data.body.pictures,
           directoryArray: res.data.body.data,
@@ -133,6 +134,14 @@ Page({
           scale: 28 //改动似乎无效
         })
       }
+    })
+  },
+  previewPic: function(e){
+    var current = e.currentTarget.id;
+    var pic_array = new Array(current);
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接
+      urls: pic_array // 需要预览的图片http链接列表
     })
   },
   onReady:function(){

@@ -205,7 +205,7 @@ div.wx-swiper-dot.wx-swiper-dot-active::before { background-color: #fff !importa
 /* 详情页公共布局 */
 .detail {  display: flex; padding: 20rpx; flex-direction: column;}
 .detail .img-container { width: 100%; height: auto; display: flex;}
-.detail .img-container image { width: 100%; margin: 0 auto; height: 400rpx; background-color: #eeeeee;}
+.detail .img-container image { width: 100%; margin: 0 auto; height: 440rpx; background-color: #eeeeee;}
 .detail .headline { padding: 30rpx 0;}
 .detail .headline .h1 { display: block; margin-bottom: 10rpx;}
 

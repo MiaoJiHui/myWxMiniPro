@@ -35,6 +35,7 @@ Page({
           dataList: res.data.body.data_list,
           dataSlide: res.data.body.data_slide
         });
+        wx.hideToast();
       }
     })
 
@@ -91,7 +92,7 @@ Page({
     wx.showToast({
       title: 'Loading',
       icon: 'loading',
-      duration: 1000
+      duration: 1500
     });
     wx.showNavigationBarLoading();
     var input_value = e.detail.value;
@@ -113,6 +114,5 @@ Page({
     });
   },
   onReady: function(){
-    wx.hideToast();
   }
 })

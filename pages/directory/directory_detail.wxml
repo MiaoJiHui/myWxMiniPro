@@ -6,7 +6,7 @@
         <swiper indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
             <block wx:for="{{pictures}}">
-            <swiper-item>
+            <swiper-item bindtap="previewPic" id="{{item.coverpic}}">
                 <image src="{{item.coverpic}}" class="slide-image" mode="aspectFill" />
                 
             </swiper-item>

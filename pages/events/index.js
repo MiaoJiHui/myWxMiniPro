@@ -16,7 +16,12 @@ Page({
     cityId: 1
   },
   onLoad: function(){
-    wx.showNavigationBarLoading();
+    // wx.showNavigationBarLoading();
+    wx.showToast({
+      title: 'Loading',
+      icon: 'loading',
+      duration: 1500
+    })
     var that = this;
     var city_id = app.globalData.cityId;
     var url = that.data.eventsUrl + city_id;
@@ -25,12 +30,12 @@ Page({
       method: 'GET',
       header: {'content-type': 'application/json'},
       success: function(res){
-        wx.hideNavigationBarLoading();
         that.setData({
           cityId: city_id,
           dataList: res.data.body.data_list,
           dataSlide: res.data.body.data_slide
         });
+        wx.hideToast();
       }
     })
   },
