@@ -13,3 +13,7 @@
 ![](http://p1.bpimg.com/567571/8605a69dd449028b.png)
 ![](http://i1.piimg.com/567571/a4df33d42ce2e189.png)
 ![](http://i1.piimg.com/567571/8ba48c1e5317620e.png)
+
+### 小程序官方指南
+
+![https://mp.weixin.qq.com/debug/wxadoc/dev/index.html](https://mp.weixin.qq.com/debug/wxadoc/dev/index.html)
