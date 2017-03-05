@@ -9,8 +9,8 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 500,
-    directoryUrl: 'https://api.thatsmags.com/venue/list.html?&limit=10&city_id=',
-    searchUrl: 'https://api.thatsmags.com/archive/search.html?cat_id=venue&k=',
+    directoryUrl: 'https://demo.com/venue/list.html?&limit=10&city_id=',
+    searchUrl: 'https://demo.com/archive/search.html?cat_id=venue&k=',
     page: 1,
     cityId: 1
   },

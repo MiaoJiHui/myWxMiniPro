@@ -39,7 +39,7 @@ Page({
     // }],
     latitude: '31.230416', 
     longitude: '121.473701', 
-    url: 'https://api.thatsmags.com/events/json-detail.html?id='
+    url: 'https://demo.com/events/json-detail.html?id='
   },
   onLoad:function(options){
     // wx.showNavigationBarLoading();

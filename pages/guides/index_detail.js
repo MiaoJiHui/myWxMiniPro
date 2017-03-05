@@ -9,7 +9,7 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 500,
-    guidesUrl: "https://api.thatsmags.com/archive/list?cat_id=",
+    guidesUrl: "https://demo.com/archive/list?cat_id=",
     page: 1
   },
   onLoad: function(options){

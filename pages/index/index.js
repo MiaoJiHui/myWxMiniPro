@@ -42,9 +42,9 @@ Page({
     ],
     index: 0,
     cityId: 1,
-    homeUrl: 'https://api.thatsmags.com/archive/list?limit=10',
-    articleSearchUrl: 'https://api.thatsmags.com/archive/search.html?cat_id=1&k=',
-    homeGallery: 'https://api.thatsmags.com/public/apphome?slide_num=3'
+    homeUrl: 'https://demo.com/archive/list?limit=10',
+    articleSearchUrl: 'https://demo.com/archive/search.html?cat_id=1&k=',
+    homeGallery: 'https://demo.com/public/apphome?slide_num=3'
 
   },
   // 初始加载
@@ -142,7 +142,7 @@ Page({
     
     wx.showNavigationBarLoading();
     wx.request({
-      url: 'https://api.thatsmags.com/archive/list?limit=10&page=1&city_id='+page_index,
+      url: 'https://demo.com/archive/list?limit=10&page=1&city_id='+page_index,
       method: 'GET',
       header: { 'content-type': 'application/json'},
       success: function(res){
@@ -250,7 +250,7 @@ Page({
     var that = this;
     wx.showNavigationBarLoading();
      wx.request({
-      url: 'https://api.thatsmags.com/archive/list?limit=10&page=1',
+      url: 'https://demo.com/archive/list?limit=10&page=1',
       method: 'GET',
       header: { 'content-type': 'application/json'},
       success: function(res) {
@@ -274,7 +274,7 @@ Page({
     that.data.page++;
     var homeUrl = that.data.homeUrl;
     var city_id = that.data.cityId;
-    // var url = 'https://api.thatsmags.com/archive/list?os=android&lat=31.20819&lng=121.625916&device_id=861054037928152&limit=10&version=1.0.4&city_id=1&page=' + that.data.page;
+    // var url = 'https://demo.com/archive/list?os=android&lat=31.20819&lng=121.625916&device_id=861054037928152&limit=10&version=1.0.4&city_id=1&page=' + that.data.page;
 
     wx.request({
       url: homeUrl + "&city_id=" + city_id + "&page=" + that.data.page,

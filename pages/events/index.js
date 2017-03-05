@@ -10,8 +10,8 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 500,
-    eventsUrl: "https://api.thatsmags.com/events/list.html?limit=10&city_id=",
-    searchUrl: "https://api.thatsmags.com/events/list.html?cat_id=events&k=",
+    eventsUrl: "https://demo.com/events/list.html?limit=10&city_id=",
+    searchUrl: "https://demo.com/events/list.html?cat_id=events&k=",
     page: 1,
     cityId: 1
   },

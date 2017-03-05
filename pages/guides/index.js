@@ -6,7 +6,7 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 500,
-    guidesUrl: "https://api.thatsmags.com/archive/list.html?&cat_id=guides&city_id=",
+    guidesUrl: "https://demo.com/archive/list.html?&cat_id=guides&city_id=",
   },
   onLoad: function(){
     wx.showToast({

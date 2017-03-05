@@ -6,7 +6,7 @@ var app = getApp();
 
 Page({
   data:{
-    articleDetailUrl: 'https://api.thatsmags.com/archive/json-detail.html?id='
+    articleDetailUrl: 'https://demo.com/archive/json-detail.html?id='
   },
   onLoad:function(options){
     // console.log(options);
