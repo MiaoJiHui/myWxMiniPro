@@ -7,3 +7,9 @@
 - utils文件夹是工具类js
 - wxParse是用于解析html的js库，因为微信小程序不支持html，故需要它去做转换
 - pages一共分index,directory,event,guides四大分类页和detail页组成
+
+### 预览图
+
+![](http://p1.bpimg.com/567571/8605a69dd449028b.png)
+![](http://i1.piimg.com/567571/a4df33d42ce2e189.png)
+![](http://i1.piimg.com/567571/8ba48c1e5317620e.png)
